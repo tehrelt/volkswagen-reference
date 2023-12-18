@@ -2,4 +2,11 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph" />
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/carFragment">
+    <fragment
+        android:id="@+id/carFragment"
+        android:name="ru.evteev.volkswagen.CarFragment"
+        android:label="fragment_cars_list"
+        tools:layout="@layout/fragment_cars_list" />
+</navigation>

@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import ru.evteev.volkwagen.R
 
 class CarListFragment : Fragment() {
 
@@ -19,7 +20,7 @@ class CarListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_car_list, container, false)
+        return inflater.inflate(R.layout.fragment_cars_list, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

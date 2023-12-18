@@ -14,7 +14,7 @@
         android:theme="@style/Theme.Volkwagen"
         tools:targetApi="34">
         <activity
-            android:name=".MainActivity"
+            android:name="ru.evteev.volkswagen.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Volkwagen">
