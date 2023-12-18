@@ -1,4 +1,4 @@
-package ru.evteev.volkwagen
+package ru.evteev.volkswagen
 
 import org.junit.Test
 
