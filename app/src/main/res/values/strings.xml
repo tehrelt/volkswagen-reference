@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">volkwagen</string>
+    <string name="app_name">Volkswagen Reference</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
@@ -43,6 +43,6 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
-    <string name="menu_main">MENU_MAIN</string>
-    <string name="menu_favorite">MENU_FAVORITE</string>
+    <string name="menu_main">Main</string>
+    <string name="menu_favorite">Favorite</string>
 </resources>
