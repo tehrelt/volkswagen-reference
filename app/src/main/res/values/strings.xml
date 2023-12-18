@@ -43,4 +43,6 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
+    <string name="menu_main">MENU_MAIN</string>
+    <string name="menu_favorite">MENU_FAVORITE</string>
 </resources>
