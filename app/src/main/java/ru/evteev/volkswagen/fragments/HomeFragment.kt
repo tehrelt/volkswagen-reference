@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import ru.evteev.volkswagen.R
+import ru.evteev.volkswagen.databinding.FragmentHomeBinding
 import ru.evteev.volkswagen.models.Car
 import ru.evteev.volkswagen.models.ResponseCar
 import ru.evteev.volkswagen.retrofit.RetrofitInstance
@@ -20,6 +20,9 @@ import ru.evteev.volkswagen.retrofit.RetrofitInstance
  * create an instance of this fragment.
  */
 class HomeFragment : Fragment() {
+
+    private lateinit var binding: FragmentHomeBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -29,22 +32,31 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        RetrofitInstance.api.getCar(1).enqueue(object : Callback<ResponseCar>{
+        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        return binding.root;
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        RetrofitInstance.api.getCar(1).enqueue(object : Callback<ResponseCar> {
             override fun onResponse(call: Call<ResponseCar>, response: Response<ResponseCar>) {
                 if(response.body() == null) {
                     return;
                 }
 
                 val car: Car = response.body()!!.data;
-                Log.d("TEST", "car: ${car.id} ${car.model} ${car.releaseYear}");
+
+                binding.labelHomeTodayCarModel.text = car.model
+                binding.labelHomeTodayCarDescription.text = car.description
+
+
             }
 
             override fun onFailure(call: Call<ResponseCar>, t: Throwable) {
-                TODO("Not yet implemented")
+                Log.d("HomeFragment", t.message.toString())
             }
 
         })
-
-        return inflater.inflate(R.layout.fragment_home, container, false)
     }
 }
