@@ -7,9 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.GridLayoutManager
 import com.bumptech.glide.Glide
 import ru.evteev.volkswagen.CarActivity
+import ru.evteev.volkswagen.adapters.CarsListAdapter
 import ru.evteev.volkswagen.databinding.FragmentHomeBinding
+import ru.evteev.volkswagen.decorators.GridSpacingItemDecorator
 import ru.evteev.volkswagen.models.Car
 import ru.evteev.volkswagen.viewmodel.HomeViewModel
 
@@ -19,6 +22,7 @@ class HomeFragment : Fragment() {
     private lateinit var vm: HomeViewModel
 
     private lateinit var todaysCar: Car
+    private lateinit var carsAdapter: CarsListAdapter
 
     companion object {
         const val CAR_ID = "ru.evteev.volkswagen.fragments.carId"
@@ -30,6 +34,8 @@ class HomeFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         vm = ViewModelProviders.of(this)[HomeViewModel::class.java]
+
+        carsAdapter = CarsListAdapter()
     }
 
     override fun onCreateView(
@@ -44,10 +50,33 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        prepareCarsListRecyclerView()
+
         vm.getCar(1);
         observerCar()
         onTodayCarClick();
 
+        vm.getCars();
+        observerCars();
+
+    }
+
+    private fun prepareCarsListRecyclerView() {
+        binding.recViewHomeOthers.apply {
+            layoutManager = GridLayoutManager(activity, 2, GridLayoutManager.VERTICAL, false)
+            layoutManager.apply {
+                addItemDecoration(GridSpacingItemDecorator(10));
+            }
+//            layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false);
+            adapter = carsAdapter
+
+        }
+    }
+
+    private fun observerCars() {
+        vm.observeCarsLiveData().observe(viewLifecycleOwner) { carList ->
+            carsAdapter.setCars(carsList = carList as ArrayList<Car>)
+        }
     }
 
     private fun onTodayCarClick() {
