@@ -14,7 +14,7 @@
             android:id="@+id/collapsing_toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:contentScrim="@color/accent"
+            app:contentScrim="@color/primary"
             app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
             app:expandedTitleTextColor="@color/white"
             app:collapsedTitleTextColor="@color/white"
@@ -40,8 +40,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_favorite"
-        app:backgroundTint="@color/primary"
-        app:tint="@color/secondary"
+        android:backgroundTint="@color/accent"
+        app:tint="@color/white"
         app:layout_anchor="@id/appbar"
         app:layout_anchorGravity="bottom|end"
         android:layout_marginEnd="40dp"/>
@@ -74,7 +74,6 @@
                     android:layout_height="wrap_content"
                     android:text="Type: Sedan"
                     android:textStyle="bold"
-                    android:textColor="@color/secondary"
                     android:drawableLeft="@drawable/ic_vehicle"/>
 
             </LinearLayout>
@@ -85,7 +84,6 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/div_attributes"
                 android:text="History: "
-                android:textColor="@color/secondary"
                 android:textSize="24dp"
                 android:textStyle="bold"/>
 
