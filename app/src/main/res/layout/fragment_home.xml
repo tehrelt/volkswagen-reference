@@ -85,6 +85,7 @@
                         app:layout_constraintBottom_toBottomOf="parent">
 
                         <Button
+                            android:id="@+id/btn_read_detail_today"
                             android:layout_width="120dp"
                             android:layout_height="50dp"
                             android:text="Read detail"

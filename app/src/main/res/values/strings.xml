@@ -47,4 +47,5 @@
     <string name="menu_favorite">Favorite</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_car">CarActivity</string>
 </resources>
