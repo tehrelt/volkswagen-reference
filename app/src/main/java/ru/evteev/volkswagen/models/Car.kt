@@ -11,5 +11,7 @@ data class Car(
     @SerializedName("model")
     val model: String,
     @SerializedName("release_year")
-    val releaseYear: Int
+    val releaseYear: Int,
+    @SerializedName("image_link")
+    val imageLink: String
 )

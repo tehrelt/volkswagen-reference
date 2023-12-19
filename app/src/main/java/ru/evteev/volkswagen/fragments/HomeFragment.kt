@@ -1,18 +1,16 @@
 package ru.evteev.volkswagen.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import com.bumptech.glide.Glide
 import ru.evteev.volkswagen.databinding.FragmentHomeBinding
 import ru.evteev.volkswagen.models.Car
-import ru.evteev.volkswagen.models.ResponseCar
-import ru.evteev.volkswagen.retrofit.RetrofitInstance
+import ru.evteev.volkswagen.viewmodel.HomeViewModel
 
 /**
  * A simple [Fragment] subclass.
@@ -22,9 +20,11 @@ import ru.evteev.volkswagen.retrofit.RetrofitInstance
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
+    private lateinit var vm: HomeViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        vm = ViewModelProviders.of(this)[HomeViewModel::class.java]
     }
 
     override fun onCreateView(
@@ -39,22 +39,19 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        RetrofitInstance.api.getCar(1).enqueue(object : Callback<ResponseCar> {
-            override fun onResponse(call: Call<ResponseCar>, response: Response<ResponseCar>) {
-                if(response.body() == null) {
-                    return;
-                }
+        vm.getCar(5);
+        observerCar()
 
-                val car: Car = response.body()!!.data;
+    }
 
-                binding.labelHomeTodayCarModel.text = car.model
-                binding.labelHomeTodayCarDescription.text = car.description
-
-
-            }
-
-            override fun onFailure(call: Call<ResponseCar>, t: Throwable) {
-                Log.d("HomeFragment", t.message.toString())
+    private fun observerCar() {
+        vm.observeCarLiveData().observe(viewLifecycleOwner, object : Observer<Car> {
+            override fun onChanged(value: Car) {
+                binding.labelHomeTodayCarModel.text = value.model
+                binding.labelHomeTodayCarDescription.text = value.description
+                Glide.with(this@HomeFragment)
+                    .load(value.imageLink)
+                    .into(binding.imageViewHomeToday)
             }
 
         })
