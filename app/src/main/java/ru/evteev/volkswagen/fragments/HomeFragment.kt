@@ -44,14 +44,14 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        vm.getCar(2);
+        vm.getCar(1);
         observerCar()
         onTodayCarClick();
 
     }
 
     private fun onTodayCarClick() {
-        binding.btnReadDetailToday.setOnClickListener {
+        binding.cardTodayCar.setOnClickListener {
             val intent = Intent(activity, CarActivity::class.java)
             intent.putExtra(CAR_ID, todaysCar.id.toString())
             intent.putExtra(CAR_MODEL, todaysCar.model)
@@ -64,11 +64,10 @@ class HomeFragment : Fragment() {
     private fun observerCar() {
         vm.observeCarLiveData().observe(viewLifecycleOwner
         ) { car ->
-            binding.labelHomeTodayCarModel.text = car.model
-            binding.labelHomeTodayCarDescription.text = car.description
+            binding.textTodayCarModel.text = car.model
             Glide.with(this@HomeFragment)
                 .load(car.imageLink)
-                .into(binding.imageViewHomeToday)
+                .into(binding.imgTodayCar)
 
             this.todaysCar = car;
         }
