@@ -59,6 +59,19 @@ class HomeFragment : Fragment() {
         vm.getCars();
         observerCars();
 
+        onCarClick();
+
+    }
+
+    private fun onCarClick() {
+        carsAdapter.onItemClick = {car ->
+            val intent = Intent(activity, CarActivity::class.java)
+            intent.putExtra(CAR_ID, car.id.toString())
+            intent.putExtra(CAR_MODEL, car.model)
+            intent.putExtra(CAR_THUMB, car.imageLink);
+            intent.putExtra(CAR_DESC, car.description);
+            startActivity(intent);
+        }
     }
 
     private fun prepareCarsListRecyclerView() {

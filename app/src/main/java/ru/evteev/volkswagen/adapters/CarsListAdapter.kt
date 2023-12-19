@@ -9,6 +9,8 @@ import ru.evteev.volkswagen.models.Car
 
 class CarsListAdapter(): RecyclerView.Adapter<CarsListAdapter.CarItemViewHolder>() {
 
+    lateinit var onItemClick: ((Car) -> Unit)
+
     private var carsList = ArrayList<Car>()
 
     fun setCars(carsList: ArrayList<Car>) {
@@ -31,6 +33,10 @@ class CarsListAdapter(): RecyclerView.Adapter<CarsListAdapter.CarItemViewHolder>
             .load(carsList[position].imageLink)
             .into(holder.binding.thumb)
         holder.binding.title.text = carsList[position].model
+
+        holder.itemView.setOnClickListener {
+            onItemClick.invoke(carsList[position])
+        }
     }
 
 }
