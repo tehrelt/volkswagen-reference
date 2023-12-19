@@ -14,6 +14,7 @@ import ru.evteev.volkswagen.adapters.CarsListAdapter
 import ru.evteev.volkswagen.databinding.FragmentHomeBinding
 import ru.evteev.volkswagen.decorators.GridSpacingItemDecorator
 import ru.evteev.volkswagen.models.Car
+import ru.evteev.volkswagen.models.CarPreview
 import ru.evteev.volkswagen.viewmodel.HomeViewModel
 
 class HomeFragment : Fragment() {
@@ -69,7 +70,6 @@ class HomeFragment : Fragment() {
             intent.putExtra(CAR_ID, car.id.toString())
             intent.putExtra(CAR_MODEL, car.model)
             intent.putExtra(CAR_THUMB, car.imageLink);
-            intent.putExtra(CAR_DESC, car.description);
             startActivity(intent);
         }
     }
@@ -88,7 +88,7 @@ class HomeFragment : Fragment() {
 
     private fun observerCars() {
         vm.observeCarsLiveData().observe(viewLifecycleOwner) { carList ->
-            carsAdapter.setCars(carsList = carList as ArrayList<Car>)
+            carsAdapter.setCars(carsList = carList as ArrayList<CarPreview>)
         }
     }
 

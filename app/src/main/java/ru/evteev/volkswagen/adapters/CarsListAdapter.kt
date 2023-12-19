@@ -5,15 +5,15 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import ru.evteev.volkswagen.databinding.ListCarsBinding
-import ru.evteev.volkswagen.models.Car
+import ru.evteev.volkswagen.models.CarPreview
 
 class CarsListAdapter(): RecyclerView.Adapter<CarsListAdapter.CarItemViewHolder>() {
 
-    lateinit var onItemClick: ((Car) -> Unit)
+    lateinit var onItemClick: ((CarPreview) -> Unit)
 
-    private var carsList = ArrayList<Car>()
+    private var carsList = ArrayList<CarPreview>()
 
-    fun setCars(carsList: ArrayList<Car>) {
+    fun setCars(carsList: ArrayList<CarPreview>) {
         this.carsList = carsList;
         notifyDataSetChanged()
     }

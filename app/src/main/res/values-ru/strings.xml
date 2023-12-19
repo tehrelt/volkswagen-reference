@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="APP_NAME">Справочник VW</string>
+    <string name="MENU_HOME">Главная</string>
+    <string name="MENU_FAVORITE">Избранное</string>
+    <string name="hello_blank_fragment">Пустой фрагмент</string>
+    <string name="TITLE_ACTIVITY_CAR">Детали машины</string>
+    <string name="LABEL_CAR_DETAIL_HISTORY">История:</string>
+    <string name="LABEL_CAR_DETAIL_BODYWORK">Кузов:</string>
+    <string name="LABEL_CAR_DETAIL_YEAR">Год выпуска:</string>
+    <string name="LABEL_HOME_TODAY">Популярно</string>
+    <string name="LABEL_HOME_ALL_MODELS">Все модели VW</string>
+</resources>

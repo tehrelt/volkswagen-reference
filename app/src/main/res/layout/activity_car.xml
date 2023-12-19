@@ -44,7 +44,7 @@
         app:tint="@color/white"
         app:layout_anchor="@id/appbar"
         app:layout_anchorGravity="bottom|end"
-        android:layout_marginEnd="40dp"/>
+        android:layout_marginEnd="16dp"/>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -70,11 +70,21 @@
                 app:layout_constraintStart_toStartOf="parent">
 
                 <TextView
+                    android:id="@+id/text_vehicle_type"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Type: Sedan"
+                    android:text="@string/LABEL_CAR_DETAIL_BODYWORK"
                     android:textStyle="bold"
                     android:drawableLeft="@drawable/ic_vehicle"/>
+
+
+<!--                <TextView-->
+<!--                    android:id="@+id/text_release_year"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="@string/LABEL_CAR_DETAIL_YEAR"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:drawableLeft="@drawable/ic_vehicle"/>-->
 
             </LinearLayout>
 
@@ -83,7 +93,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/div_attributes"
-                android:text="History: "
+                android:text="@string/LABEL_CAR_DETAIL_HISTORY"
                 android:textSize="24dp"
                 android:textStyle="bold"/>
 

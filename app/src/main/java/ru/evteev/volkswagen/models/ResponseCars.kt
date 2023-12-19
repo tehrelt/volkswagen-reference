@@ -7,5 +7,5 @@ data class ResponseCars(
     @SerializedName("count")
     val count: Int,
     @SerializedName("data")
-    val `data`: ArrayList<Car>
+    val `data`: ArrayList<CarPreview>
 )
