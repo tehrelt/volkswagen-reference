@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "ru.evteev.volkwagen"
+    namespace = "ru.evteev.volkswagen"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "ru.evteev.volkwagen"
+        applicationId = "ru.evteev.volkswagen"
         minSdk = 29
         targetSdk = 34
         versionCode = 1
@@ -50,6 +50,7 @@ dependencies {
 
     //ViewModel lifecycle
     implementation("androidx.lifecycle:lifecycle-extensions:2.1.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0-rc01")
 
     implementation("androidx.core:core-ktx:1.9.0")

@@ -3,10 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/carFragment">
+    app:startDestination="@id/homeFragment">
     <fragment
-        android:id="@+id/carFragment"
-        android:name="ru.evteev.volkswagen.CarFragment"
-        android:label="fragment_cars_list"
-        tools:layout="@layout/fragment_cars_list" />
+        android:id="@+id/homeFragment"
+        android:name="ru.evteev.volkswagen.fragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="ru.evteev.volkswagen.fragments.FavoriteFragment"
+        android:label="fragment_favorite"
+        tools:layout="@layout/fragment_favorite" />
 </navigation>

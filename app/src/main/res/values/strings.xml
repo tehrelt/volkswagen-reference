@@ -45,4 +45,6 @@
     </string>
     <string name="menu_main">Main</string>
     <string name="menu_favorite">Favorite</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
